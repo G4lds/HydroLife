@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0kyy4i32kan"]
+
+[ext_resource type="Script" path="res://cano.gd" id="1_mx8qs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl18r"]
+
+[node name="Cano" type="Node2D"]
+
+[node name="Cano" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_mx8qs")
+
+[node name="Colisao" type="CollisionShape2D" parent="Cano"]
+shape = SubResource("RectangleShape2D_bl18r")
+
+[node name="Down Ray" type="RayCast2D" parent="Cano"]
+target_position = Vector2(0, 32)
+collision_mask = 2
+
+[node name="Right Ray" type="RayCast2D" parent="Cano"]
+target_position = Vector2(32, 0)
+collision_mask = 2
+
+[node name="Up Ray" type="RayCast2D" parent="Cano"]
+target_position = Vector2(0, -32)
+collision_mask = 2
+
+[node name="Left Ray" type="RayCast2D" parent="Cano"]
+target_position = Vector2(-32, 0)
+collision_mask = 2

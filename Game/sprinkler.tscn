@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bls7wwv8kt647"]
+
+[ext_resource type="Script" path="res://sprinkler.gd" id="1_jlrvx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1ypc"]
+
+[node name="Sprinkler" type="CharacterBody2D"]
+position = Vector2(400, 431)
+script = ExtResource("1_jlrvx")
+
+[node name="Navegador" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_a1ypc")
