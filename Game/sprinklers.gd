@@ -1,7 +1,7 @@
 extends Node2D
+@onready var RAIZ = get_node("/root/Raiz")
 
-
-func check_children():
+func regar():
 	$Timer.start()
 
 func remove_children(POS):
@@ -9,9 +9,10 @@ func remove_children(POS):
 		if get_child(i).position == POS:
 			remove_child(get_child(i))
 
-func _check_children():
+func _regar():
 	for i in range(1,get_child_count()):
-		get_child(i).check()
+		get_child(i).regar()
+	print(RAIZ.AGUA)
 
 func _on_timer_timeout() -> void:
-	_check_children()
+	_regar()

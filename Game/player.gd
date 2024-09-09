@@ -5,7 +5,7 @@ const SPEED = 300.0
 
 var TOOL = 0
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 
 	var direction := [Input.get_axis("ui_left", "ui_right"),Input.get_axis("ui_up", "ui_down")]
 	if direction:
@@ -21,6 +21,8 @@ func _physics_process(delta: float) -> void:
 		print(RAIZ.get_tile($Mouse.position))
 		print($Mouse.global_position)
 		RAIZ.change_tile(TOOL, RAIZ.get_tile($Mouse.global_position) ,$Mouse.global_position )
+		if TOOL == 3:
+			RAIZ.AGUA -= 1
 	
 	if Input.is_action_just_pressed("Item 0"):
 		change_tool(0)
@@ -36,6 +38,10 @@ func _physics_process(delta: float) -> void:
 		change_tool(5)
 	elif Input.is_action_just_pressed("Item 6"):
 		change_tool(6)
+	elif Input.is_action_just_pressed("Item 7"):
+		change_tool(7)
+	elif Input.is_action_just_pressed("Item 8"):
+		change_tool(8)
 
 func change_tool(tool:int):
 	TOOL = tool

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnwnn0c71ddas"]
+
+[ext_resource type="Script" path="res://planta.gd" id="1_k4218"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1ypc"]
+
+[node name="Planta" type="CharacterBody2D"]
+position = Vector2(400, 431)
+script = ExtResource("1_k4218")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_a1ypc")
