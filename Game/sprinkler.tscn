@@ -3,12 +3,16 @@
 [ext_resource type="Script" path="res://sprinkler.gd" id="1_jlrvx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1ypc"]
+radius = 8.0
 
 [node name="Sprinkler" type="CharacterBody2D"]
 position = Vector2(400, 431)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_jlrvx")
 
 [node name="Navegador" type="NavigationAgent2D" parent="."]
+navigation_layers = 4
 path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
