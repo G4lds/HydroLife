@@ -50,12 +50,12 @@ func _input(event):
 		change_tool(8)
 	elif Input.is_action_just_pressed("Item9"):
 		change_tool(9)
-	elif Input.is_action_just_pressed("RodaMouseCima"):
+	elif Input.is_action_pressed("RodaMouseCima"):
 		if Tool < 9:
 			change_tool(Tool+1)
 		else:
 			change_tool(0)
-	elif Input.is_action_just_pressed("RodaMouseBaixo"):
+	elif Input.is_action_pressed("RodaMouseBaixo"):
 		if Tool > 0:
 			change_tool(Tool-1)
 		else:
@@ -88,8 +88,12 @@ func _physics_process(_delta: float) -> void:
 
 func use_tool(TOOL):
 	match TOOL:
-		1,3:
+		1:
 			RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position))
+		3:
+			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
+				#Inventario[Sementes][Quantidade][RAIZ.get_tile($Mouse.global_position).Baixo.x] += 1
+				print(RAIZ.get_tile($Mouse.global_position).Baixo.x)
 		2:
 			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
 				Inventario[Terra][Quantidade] += 1
@@ -112,7 +116,8 @@ func use_tool(TOOL):
 					Inventario[TOOL][Quantidade] -= 1
 		6:
 			if Inventario[Sementes][Quantidade][Inventario[Sementes][Tipo]] > 0:
-				RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position),Inventario[Sementes][Tipo])
+				if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position),Inventario[Sementes][Tipo]):
+					Inventario[Sementes][Quantidade][Inventario[Sementes][Tipo]] -= 1
 
 func change_tool(TOOL:int):
 	if Tool == TOOL and Tool == 6:

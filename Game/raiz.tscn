@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://byrfuwy4riy8j"]
+[gd_scene load_steps=19 format=4 uid="uid://byrfuwy4riy8j"]
 
 [ext_resource type="Script" path="res://raiz.gd" id="1_7kgxd"]
 [ext_resource type="TileSet" uid="uid://8ceytsx4jy8h" path="res://Assets/TileSet.tres" id="1_f270c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://iga5e1isk82r" path="res://Assets/TextureAtlas.png" id="2_orwte"]
 [ext_resource type="Script" path="res://animacoes.gd" id="5_6b7as"]
 [ext_resource type="Script" path="res://sprinklers.gd" id="5_r67vs"]
+[ext_resource type="Script" path="res://hud.gd" id="6_453r8"]
 [ext_resource type="Script" path="res://plantas.gd" id="6_cf2n1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrefp"]
@@ -64,6 +65,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3jkk"]
 radius = 4.0
 
+[sub_resource type="Theme" id="Theme_tlvlg"]
+
 [node name="Raiz" type="Node2D"]
 script = ExtResource("1_7kgxd")
 
@@ -107,7 +110,6 @@ shape = SubResource("WorldBoundaryShape2D_dch8h")
 [node name="Player" type="CharacterBody2D" parent="Players"]
 position = Vector2(416, 176)
 script = ExtResource("2_l15uq")
-metadata/_edit_group_ = true
 
 [node name="Colisao" type="CollisionShape2D" parent="Players/Player"]
 shape = SubResource("CircleShape2D_yiyyp")
@@ -148,6 +150,211 @@ region_rect = Rect2(288, 480, 32, 32)
 [node name="Camera" type="Camera2D" parent="Players/Player"]
 zoom = Vector2(2, 2)
 
+[node name="hud" type="Control" parent="Players/Player/Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -321.0
+offset_top = -192.0
+offset_right = 320.0
+offset_bottom = 176.0
+script = ExtResource("6_453r8")
+
+[node name="itens" type="Sprite2D" parent="Players/Player/Camera/hud"]
+z_index = 6
+position = Vector2(321, 16)
+texture = ExtResource("2_orwte")
+region_enabled = true
+region_rect = Rect2(0, 480, 288, 32)
+
+[node name="Selecao" type="Sprite2D" parent="Players/Player/Camera/hud"]
+z_index = 6
+position = Vector2(161, 16)
+texture = ExtResource("2_orwte")
+region_enabled = true
+region_rect = Rect2(288, 480, 32, 32)
+
+[node name="Agua" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 113.0
+offset_bottom = 56.0
+theme = SubResource("Theme_tlvlg")
+text = "Agua"
+autowrap_mode = 0
+
+[node name="Dia" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 39.0
+offset_right = 113.0
+offset_bottom = 79.0
+theme = SubResource("Theme_tlvlg")
+text = "Agua"
+autowrap_mode = 0
+
+[node name="1" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 32.0
+offset_right = 257.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Enxada"
+autowrap_mode = 0
+
+[node name="2" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 32.0
+offset_right = 289.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Pa"
+autowrap_mode = 0
+
+[node name="3" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 32.0
+offset_right = 321.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Foice"
+autowrap_mode = 0
+
+[node name="4" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 32.0
+offset_right = 353.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Marreta"
+autowrap_mode = 0
+
+[node name="5" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 32.0
+offset_right = 385.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Regador"
+autowrap_mode = 0
+
+[node name="6" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 32.0
+offset_right = 417.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Sementes"
+autowrap_mode = 0
+
+[node name="7" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 32.0
+offset_right = 449.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Terra"
+autowrap_mode = 0
+
+[node name="8" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 32.0
+offset_right = 481.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Canos"
+autowrap_mode = 0
+
+[node name="9" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 32.0
+offset_right = 513.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Dispersor"
+autowrap_mode = 0
+
+[node name="52" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 39.0
+offset_right = 385.0
+offset_bottom = 79.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Q:"
+autowrap_mode = 0
+
+[node name="62" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 39.0
+offset_right = 417.0
+offset_bottom = 101.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Q:
+T:"
+autowrap_mode = 0
+
+[node name="72" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 39.0
+offset_right = 449.0
+offset_bottom = 79.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Q:"
+autowrap_mode = 0
+
+[node name="82" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 39.0
+offset_right = 481.0
+offset_bottom = 79.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Q:"
+autowrap_mode = 0
+
+[node name="92" type="RichTextLabel" parent="Players/Player/Camera/hud"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 39.0
+offset_right = 513.0
+offset_bottom = 79.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_tlvlg")
+text = "Q:"
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="Players/Player/Camera/hud"]
+offset_left = 529.0
+offset_top = 16.0
+offset_right = 630.0
+offset_bottom = 47.0
+text = "Passar o dia"
+
 [node name="Estruturas" type="Node2D" parent="."]
 
 [node name="Sprinklers" type="Node2D" parent="Estruturas"]
@@ -155,3 +362,5 @@ script = ExtResource("5_r67vs")
 
 [node name="Plantas" type="Node2D" parent="Estruturas"]
 script = ExtResource("6_cf2n1")
+
+[connection signal="button_down" from="Players/Player/Camera/hud/Button" to="." method="Turno"]

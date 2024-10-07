@@ -8,7 +8,9 @@ const AlturaMapa:int = 24
 
 @onready var DisplaySize = get_viewport_rect().size
 
-var AGUA:int = 1000
+var AGUA:int = 250
+var Dia:int = 0
+var DiaTotal:int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -119,6 +121,12 @@ func _secar_agua() -> void:
 
 
 func Turno() -> void:
+	Dia += 1
+	DiaTotal += 1
+	if Dia > 10:
+		Dia = 0
+		AGUA = clamp(AGUA + 50,0,250)
+		
 	$Estruturas/Sprinklers.regar(false)
 	$Estruturas/Plantas.crescer()
 	$Estruturas/Plantas.Morrer()
