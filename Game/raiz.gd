@@ -41,7 +41,7 @@ func change_tile(COMO:int,QUEM:Dictionary,TIPO:int = 0) -> bool:
 			if QUEM.Alto == Vector2i(14,0):
 				AGUA -= 10 - TIPO
 				return true
-			elif QUEM.Solo == Vector2i(3,0):
+			elif QUEM.Solo == Vector2i(3,0) and TIPO > 0:
 				$Level/Tilemap/Solo.set_cell(QUEM.Pos,0,Vector2i(4,0))
 				return false
 		8:

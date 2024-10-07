@@ -16,14 +16,14 @@ func regar(GASTAR:bool):
 	if check():
 		if GASTAR:
 			RAIZ.AGUA -= int(RAIZ.CustoRegar + DISTANCIA/RAIZ.FatorDistancia)
-		RAIZ.change_tile(5, RAIZ.get_tile(global_position))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,32)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,0)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,-32)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,32)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,0)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,-32)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(0,32)))
-		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(0,-32)))
+		RAIZ.change_tile(5, RAIZ.get_tile(global_position),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,32)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,0)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(32,-32)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,32)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,0)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(-32,-32)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(0,32)),1)
+		RAIZ.change_tile(5, RAIZ.get_tile(position + Vector2(0,-32)),1)
 		
 	

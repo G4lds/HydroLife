@@ -101,18 +101,17 @@ func use_tool(TOOL):
 			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
 				Inventario[Terra][Quantidade] += 1
 		4:
-			print(RAIZ.get_tile($Mouse.global_position).Alto.y)
+			var tipo = RAIZ.get_tile($Mouse.global_position).Alto
 			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
-				if RAIZ.get_tile($Mouse.global_position).Alto.y == 2:
+				if tipo.y == 2:
 					Inventario[Cano][Quantidade] += 1
-				elif RAIZ.get_tile($Mouse.global_position).Alto.y == 3:
+				elif tipo.y == 3:
 					Inventario[Dispersor][Quantidade] += 1
 		5:
-			if Inventario[TOOL][Quantidade] > 0:
-				if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position),Inventario[Regador][Quantidade]):
-					Inventario[TOOL][Quantidade] = 10
-				else:
-					Inventario[TOOL][Quantidade] -= 1
+			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position),Inventario[Regador][Quantidade]):
+				Inventario[TOOL][Quantidade] = 10
+			elif Inventario[TOOL][Quantidade] > 0:
+				Inventario[TOOL][Quantidade] -= 1
 		7,8,9:
 			if Inventario[TOOL][Quantidade] > 0:
 				if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
