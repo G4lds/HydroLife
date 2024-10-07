@@ -3,9 +3,9 @@ extends Node2D
 var dead = []
 
 func remove_children(POS):
-	for i in range(0,get_child_count()):
-		if get_child(i).position == POS:
-			remove_child(get_child(i))
+	for Node in get_children():
+		if Node.position == POS:
+			remove_child(Node)
 
 func Morrer():
 	for i in range(0,len(dead)):

@@ -349,6 +349,7 @@ text = "Q:"
 autowrap_mode = 0
 
 [node name="Button" type="Button" parent="Players/Player/Camera/hud"]
+layout_mode = 0
 offset_left = 529.0
 offset_top = 16.0
 offset_right = 630.0

@@ -66,7 +66,7 @@ func _input(event):
 		use_tool(Tool)
 		print(Inventario)
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_pressed("ui_accept"):
 		RAIZ.Turno()
 		
 
@@ -91,9 +91,12 @@ func use_tool(TOOL):
 		1:
 			RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position))
 		3:
+			var tipo = RAIZ.get_tile($Mouse.global_position).Baixo
 			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
-				#Inventario[Sementes][Quantidade][RAIZ.get_tile($Mouse.global_position).Baixo.x] += 1
-				print(RAIZ.get_tile($Mouse.global_position).Baixo.x)
+				if tipo.y == 10:
+					Inventario[Sementes][Quantidade][16 - tipo.x] += 4
+				else:
+					Inventario[Sementes][Quantidade][16 - tipo.x] += 1
 		2:
 			if RAIZ.change_tile(TOOL,RAIZ.get_tile($Mouse.global_position)):
 				Inventario[Terra][Quantidade] += 1
@@ -121,7 +124,6 @@ func use_tool(TOOL):
 
 func change_tool(TOOL:int):
 	if Tool == TOOL and Tool == 6:
-		print(Inventario[Sementes][Tipo])
 		match Inventario[Sementes][Tipo]:
 			1,2,3,4,5,6,7:
 				Inventario[Sementes][Tipo] += 1

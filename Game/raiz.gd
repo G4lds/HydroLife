@@ -64,10 +64,10 @@ func change_tile(COMO:int,QUEM:Dictionary,TIPO:int = 0) -> bool:
 		6:
 			if [Vector2i(3,0),Vector2i(4,0)].has(QUEM.Solo) and QUEM.Baixo == Vector2i(-1,-1):
 				if TIPO > 4:
-					$Level/Tilemap/Baixo.set_cell(QUEM.Pos,0,Vector2i(15-TIPO,3))
+					$Level/Tilemap/Baixo.set_cell(QUEM.Pos,0,Vector2i(16-TIPO,3))
 					add_Planta(QUEM.Pos,TIPO)
 				elif QUEM.Alto == Vector2i(-1,-1):
-					$Level/Tilemap/Baixo.set_cell(QUEM.Pos,0,Vector2i(15-TIPO,3))
+					$Level/Tilemap/Baixo.set_cell(QUEM.Pos,0,Vector2i(16-TIPO,3))
 					add_Planta(QUEM.Pos,TIPO)
 				return true
 		2:
